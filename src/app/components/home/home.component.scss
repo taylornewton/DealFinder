@@ -1,0 +1,13 @@
+.logo-wrapper  {
+    img {
+        position: absolute;
+        top: 60px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-width: 90%;
+        max-height: calc(100% - 120px);
+        margin: auto;
+        overflow: auto;
+    }
+}
