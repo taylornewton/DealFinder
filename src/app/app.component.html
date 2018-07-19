@@ -2,13 +2,22 @@
   <div class="site-name">
     <a routerLink="/">EIJ Deal Finder</a>
   </div>
-  <ul>
+  <ul *ngIf="isLoggedIn">
     <li>
       <a routerLink="/search">Search</a>
     </li>
     <li class="spacer">|</li>
     <li>
       <a routerLink="/favorites">Favorites</a>
+    </li>
+    <li class="spacer">|</li>
+    <li>
+      <a routerLink="/login" (click)="logout()">Logout</a>
+    </li>
+  </ul>
+  <ul *ngIf="!isLoggedIn">
+    <li>
+      <a routerLink="/login">Login</a>
     </li>
   </ul>
 </nav>

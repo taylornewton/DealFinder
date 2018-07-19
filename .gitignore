@@ -2,6 +2,7 @@
 
 # API keys
 /src/app/constants/zillow-key.ts
+/src/environments/environment.ts
 
 # compiled output
 /dist
@@ -36,6 +37,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+firebase-debug.log
 
 # System Files
 .DS_Store

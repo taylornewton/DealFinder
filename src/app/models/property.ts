@@ -17,7 +17,7 @@ export class Property {
         this.FullAddress = addr;
     }
 
-    setEstimatedValue(estimate: number) {
+    setEstimatedValue(estimate: number): void {
         this.EstimatedValue = estimate > 0 ? estimate : this.CurrentPrice;
         this.calculateValueIndex();
     }

@@ -1,7 +1,7 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { FileProcessingService } from './file-processing.service';
-import { ValidPropertyData } from '../mocks/mock-csv-data';
+import * as MockData from '../mocks/mock-csv-data';
 import { Property } from '../models/property';
 
 describe('Service: FileProcessingService', () => {
@@ -21,14 +21,67 @@ describe('Service: FileProcessingService', () => {
 
   describe('GetProperties()', () => {
     it('should return properties', () => {
-      const result = service.GetProperties(ValidPropertyData, "TX");
+      const result = service.GetProperties(MockData.ValidPropertyData, "TX");
       expect(result.length).toEqual(3);
       expect(result[0]).toEqual(jasmine.any(Property));
+    });
+
+    it('should return properties from data with extra headers', () => {
+      const result = service.GetProperties(MockData.ValidPropertyDataWithExtraHeaders, "TX");
+      expect(result.length).toEqual(5);
+      expect(result[0]).toEqual(jasmine.any(Property));
+    });
+
+    it('should map property from csv data', () => {
+      const result = service.GetProperties(MockData.ValidPropertyDataWithExtraHeaders, "TX");
+      expect(result.length).toEqual(5);
+      expect(result[4]).toBeDefined();
+      expect(result[4].CurrentPrice).toEqual(799000);
+      expect(result[4].FullAddress.Address).toEqual('5946 Mercedes Avenue');
+      expect(result[4].MlsNumber).toEqual('13398363');
+      expect(result[4].SqFt).toEqual('3,255');
+      expect(result[4].Status).toEqual('Active');
+    });
+
+    it('should throw exception if no address field', () => {
+      expect(() => {
+        service.GetProperties(MockData.InvalidPropertyDataNoAddress, "OK")
+      }).toThrow("Invalid input data");
+    });
+
+    it('should throw exception if no city field', () => {
+      expect(() => {
+        service.GetProperties(MockData.InvalidPropertyDataNoCity, "OK")
+      }).toThrow("Invalid input data");
+    });
+
+    it('should throw exception if no price field', () => {
+      expect(() => {
+        service.GetProperties(MockData.InvalidPropertyDataNoPrice, "OK")
+      }).toThrow("Invalid input data");
     });
   });
 
   describe('GetValue()', () => {
-    
+    it('should return empty string if invalid index', () => {
+      const result = service.GetValue(["cat", "dog"], undefined);
+      expect(result).toBe("");
+    });
+
+    it('should return empty string if empty array', () => {
+      const result = service.GetValue([], 3);
+      expect(result).toBe('');
+    });
+
+    it('should return empty string if index not in array', () => {
+      const result = service.GetValue(['mouse', 'dog'], 2);
+      expect(result).toBe('');
+    });
+
+    it('should return value at index', () => {
+      const result = service.GetValue(["cat", "dog"], 1);
+      expect(result).toEqual('dog');
+    });
   });
 
   describe('GetPrice()', () => {

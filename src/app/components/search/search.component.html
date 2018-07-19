@@ -1,3 +1,15 @@
-<p>
-  search works!
-</p>
+<div id="search-container">
+  <div class="upload-wrapper">
+    <h1>Analyze Properties</h1>
+    <p>Upload a .csv file below to analyze properties</p>
+    <p class="instructions">File must contain headers including "Address", "Price", and "City"</p>
+
+    <label class="btn">
+        <input type="file" #fileImportInput (change)="fileChangeListener($event)" accept=".csv"/>
+        Property Upload
+    </label>
+
+    <p class="error" *ngIf="fileError">{{fileError}}</p>
+    
+  </div>
+</div>

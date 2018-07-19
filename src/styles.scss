@@ -2,3 +2,51 @@ body {
     font-family: Jaldi, sans-serif;
     color: #333;
 }
+
+.btn, button.btn {
+    background-color: #4E94B9;
+    border: 1px solid #4E94B9;
+    display: inline-block;
+    padding: 6px 10px;
+    cursor: pointer;
+    color: white;
+    border-radius: 20px;
+    font-size: 16px;
+    font-family: Jaldi, sans-serif;
+    min-width: 100px;
+    margin-top: 15px;
+
+    &:disabled, &:disabled:hover, &:disabled:focus {
+        background-color: #eee;
+        cursor: not-allowed;
+        border-color: #777;
+        color: #777;
+        box-shadow: none;
+    }
+
+    &:hover, &:focus {
+        background: white;
+        border-color: #044162;
+        color: #044162;
+        box-shadow: 2px 5px 5px #ccc;
+    }
+
+    &:active {
+        background: #eee;
+        color: #044162;
+        box-shadow: 2px 3px 4px #999;
+    }
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #cecece;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}

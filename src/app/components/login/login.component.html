@@ -1,0 +1,18 @@
+<form class="login-form" #formControl="ngForm">
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" [(ngModel)]="email" placeholder="Email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password" name="password" required>
+  </div>
+
+  <button type="submit" class="btn btn-submit" (click)="signIn()" [disabled]="formControl.form.invalid">
+    Login
+  </button>
+  
+  <div *ngIf="error" class="login-error">
+    <p>{{error}}</p>
+  </div>
+</form>

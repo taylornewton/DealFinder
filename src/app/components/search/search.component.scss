@@ -1,0 +1,21 @@
+#search-container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+p {
+    margin: 0;
+
+    &.instructions {
+        margin-bottom: 20px;
+        font-style: italic;
+    }
+}
+
+input[type='file'] {
+    display: none;
+}
+
+.upload-wrapper {
+    margin: 0 15px;
+}

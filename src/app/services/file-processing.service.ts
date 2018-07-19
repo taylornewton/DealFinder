@@ -10,6 +10,10 @@ export class FileProcessingService {
   readonly delimeter = "\",\"";
   constructor() { }
 
+  isCSV(file): boolean {
+    return file.name.endsWith(".csv");
+  }
+
   GetProperties(data: string, state: string): Property[] {
     const records = data.split(/\r\n|\n/);
     const propertyArr: Property[] = [];
@@ -54,7 +58,7 @@ export class FileProcessingService {
   }
 
   GetValue(data: string[], idx: number): string {
-    if (!idx)
+    if (idx == null || data.length <= 0 || data.length <= idx)
       return "";
     
     const str = data[idx];

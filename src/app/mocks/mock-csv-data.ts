@@ -15,5 +15,15 @@ export const ValidPropertyDataWithExtraHeaders =
 export const InvalidPropertyDataNoAddress =
 `"MLS#","Status","City","SqFt","Current Price"
 "13398503","Active","Frisco","3,648","$599,500"
-"13397833","Active","Plano","3,292","$475,000"
 "13397987","Active","Lake Dallas","1,629","$175,000"`;
+
+export const InvalidPropertyDataNoCity = 
+`"MLS#","Status","Address","SqFt","Current Price"
+"13398503","Active","6363 Fire Creek Trail","3,648","$599,500"
+"13397987","Active","781 Chestnut Drive","1,629","$175,000"`;
+
+export const InvalidPropertyDataNoPrice = 
+`"MLS#","Status","Address","SqFt"
+"13397833","Active","4504 CHARLEMAGNE Drive","3,292"
+"13397987","Active","781 Chestnut Drive","1,629"`;
+

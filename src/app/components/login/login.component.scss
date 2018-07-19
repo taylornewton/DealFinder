@@ -1,0 +1,16 @@
+.login-form {
+    width: 400px;
+    margin: 100px auto 0;
+
+    label {
+        font-size: 18px;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    .login-error p {
+        color: red;
+        font-style: italic;
+        margin: 10px 0;
+    }
+}
